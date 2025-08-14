@@ -1,4 +1,4 @@
-# PingEx — ICMP Time-Slot Steganography
+# PingEx — Ping Exfiltration — ICMP Time-Slot Steganography
 
 Educational **Data Hiding** project that sends **text and files** using plain **ICMP Echo** (`ping`) as a carrier. Bits are encoded by timing: each **50 ms slot** is one bit — **1** = send a ping in that slot, **0** = stay silent.
 
@@ -34,20 +34,20 @@ python3 -m pip install scapy
 **Server (loopback example):**
 
 ```bash
-sudo python3 server_stegan.py -a 127.0.0.1 --dst 127.0.0.1 --require-sig -i lo -v
+sudo python3 server-PingEx.py -a 127.0.0.1 --dst 127.0.0.1 --require-sig -i lo -v
 ```
 
 **Client (message):**
 
 ```bash
-python3 client_stegan.py 127.0.0.1 --sched-preamble -v
+python3 client-PingEx.py 127.0.0.1 --sched-preamble -v
 # type your message and press ENTER
 ```
 
 **Client (file):**
 
 ```bash
-python3 client_stegan.py 127.0.0.1 --sched-preamble -v --file /path/to/file.pdf
+python3 client-PingEx.py 127.0.0.1 --sched-preamble -v --file /path/to/file.pdf
 ```
 
 The server writes the file to its current directory.
